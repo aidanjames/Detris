@@ -12,7 +12,13 @@ struct Game {
     var level = 1
     var currentShape: BlockShape
     var nextShape: BlockShape
-    var blockPile: [BlockShape]
+    #warning("Do not initialise blockPile when you actually start testing")
+    var blockPile: [BlockShape] = PreviewMockData.shared.blockPile
+    
+    init() {
+        self.currentShape = Game.generateRandomBlockShape()
+        self.nextShape = Game.generateRandomBlockShape()
+    }
     
     static func generateRandomBlockShape() -> BlockShape {
         return SquareBlock()
