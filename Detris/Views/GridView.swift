@@ -46,7 +46,7 @@ struct GridView: View {
         for blockPileBlock in viewModel.blockPile {
             if blockPileBlock.currentPosition.contains(block) {
                 return BrickColor.fetchColor(for: blockPileBlock.blockType)
-
+                
             }
         }
         return .gray

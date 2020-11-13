@@ -7,6 +7,7 @@
 
 import Foundation
 
+#warning("Make ths conform to codable so can save the game")
 struct Game {
     var score = 0
     var level = 1
@@ -34,6 +35,10 @@ struct Game {
             return LBlock()
         case .reverseLBlock:
             return ReverseLBlock()
+        case .lSkewBlock:
+            return LSkewBlock()
+        case .rSkewBlock:
+            return RSkewBlock()
         default:
             fatalError("We shouldn't be here")
         }

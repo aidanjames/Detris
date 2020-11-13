@@ -10,7 +10,7 @@ import SwiftUI
 
 enum SingleBrick {
     #warning("Determine size based on device size...")
-    static let size: CGFloat = 27
+    static let size: CGFloat = 25
 }
 
 enum BrickColor {
@@ -26,11 +26,15 @@ enum BrickColor {
             return .red
         case .reverseLBlock:
             return .green
+        case .lSkewBlock:
+            return .orange
+        case .rSkewBlock:
+            return .black
         }
     }
 }
 
-protocol BlockShape: Codable {
+protocol BlockShape {
     var currentPosition: [Int] { get set }
     var blockType: BlockType { get }
     var flipCount: Int { get set}
@@ -43,6 +47,8 @@ enum BlockType: String, CaseIterable, Codable {
     case tBlock
     case lBlock
     case reverseLBlock
+    case lSkewBlock
+    case rSkewBlock
 }
 
 struct StraightBlock: BlockShape, Codable {
@@ -64,13 +70,25 @@ struct TBlock: BlockShape, Codable {
 }
 
 struct LBlock: BlockShape, Codable {
-    var currentPosition = [24, 25, 26, 16]
+    var currentPosition = [25, 26, 27, 17]
     var blockType: BlockType = .lBlock
     var flipCount: Int = 0
 }
 
 struct ReverseLBlock: BlockShape, Codable {
-    var currentPosition = [24, 25, 26, 14]
+    var currentPosition = [24, 25, 26, 16]
     var blockType: BlockType = .reverseLBlock
     var flipCount: Int = 0    
+}
+
+struct LSkewBlock: BlockShape, Codable {
+    var currentPosition = [14, 15, 25, 26]
+    var blockType: BlockType = .lSkewBlock
+    var flipCount: Int = 0
+}
+
+struct RSkewBlock: BlockShape, Codable {
+    var currentPosition = [25, 16, 26, 17]
+    var blockType: BlockType = .rSkewBlock
+    var flipCount: Int = 0
 }

@@ -12,9 +12,27 @@ struct GameView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Text("Score: \(viewModel.score)")
-                Text("Next: \(viewModel.nextBlock.blockType.rawValue)")
+            VStack {
+                HStack {
+                    Text("Score: \(viewModel.score)")
+                    Text("Next: \(viewModel.nextBlock.blockType.rawValue)")
+                    Button(action: {
+                        if viewModel.inprogress {
+                            viewModel.pauseGame()
+                        } else {
+                            viewModel.startGame()
+                        }
+                    } ) {
+                        Image(systemName: viewModel.inprogress ? "pause.circle.fill" : "play.circle.fill")
+                    }
+                    Button(action: { viewModel.incrementLevel() } ) {
+                        Image(systemName: "plus.circle.fill")
+                    }
+                }
+                HStack {
+                    Text("Level: \(viewModel.level)")
+                    Text("Interval: \(viewModel.interval)")
+                }
             }
             GridView(viewModel: viewModel)
             HStack(alignment: .top) {

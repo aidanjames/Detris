@@ -14,19 +14,24 @@ class GameViewModel: ObservableObject {
     var currentBlock: BlockShape { game.currentShape }
     var nextBlock: BlockShape { game.nextShape }
     var blockPile: [BlockShape] { game.blockPile }
+    var level: Int { game.level }
+    var interval: Double { game.timeInterval }
     var timer: Timer?
+    @Published var inprogress: Bool = false
     
     init() {
         startGame()
     }
     
     func startGame() {
+        inprogress = true
         timer = Timer.scheduledTimer(withTimeInterval: game.timeInterval, repeats: true) { timer in
             self.moveCurrentBlockDown()
         }
     }
     
     func pauseGame() {
+        inprogress = false
         timer?.invalidate()
     }
     
@@ -35,7 +40,13 @@ class GameViewModel: ObservableObject {
     }
     
     func incrementLevel() {
+        guard game.timeInterval > 0.05 else {
+            return
+        }
         game.level += 1
+        pauseGame()
+        game.timeInterval -= 0.05
+        startGame()
     }
     
     func addToBlockPile(block: BlockShape) {
