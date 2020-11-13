@@ -41,11 +41,12 @@ struct GridView: View {
     
     func blockColour(for block: Int) -> Color {
         if viewModel.currentBlock.currentPosition.contains(block) {
-            return viewModel.currentBlock.color
+            return BrickColor.fetchColor(for: viewModel.currentBlock.blockType)
         }
         for blockPileBlock in viewModel.blockPile {
             if blockPileBlock.currentPosition.contains(block) {
-                return blockPileBlock.color
+                return BrickColor.fetchColor(for: blockPileBlock.blockType)
+
             }
         }
         return .gray

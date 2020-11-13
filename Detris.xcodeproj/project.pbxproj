@@ -14,8 +14,10 @@
 		3D251ACB255DD35E0040B7D7 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D251ACA255DD35E0040B7D7 /* GameViewModel.swift */; };
 		3D251ACF255DD4200040B7D7 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D251ACE255DD4200040B7D7 /* Game.swift */; };
 		3D251AD4255DEA850040B7D7 /* PreviewMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D251AD3255DEA850040B7D7 /* PreviewMockData.swift */; };
+		3DC5920B255EFF2B0051F5E6 /* JoyStickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC5920A255EFF2B0051F5E6 /* JoyStickView.swift */; };
+		3DC5920F255F0B790051F5E6 /* FlipButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC5920E255F0B790051F5E6 /* FlipButtonView.swift */; };
+		3DC59213255F21F70051F5E6 /* FileManager+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC59212255F21F70051F5E6 /* FileManager+Ext.swift */; };
 		3DDFBC67255DD1CA00360CE2 /* DetrisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDFBC66255DD1CA00360CE2 /* DetrisApp.swift */; };
-		3DDFBC69255DD1CA00360CE2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDFBC68255DD1CA00360CE2 /* ContentView.swift */; };
 		3DDFBC6B255DD1D200360CE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DDFBC6A255DD1D200360CE2 /* Assets.xcassets */; };
 		3DDFBC6E255DD1D200360CE2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DDFBC6D255DD1D200360CE2 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -28,9 +30,11 @@
 		3D251ACA255DD35E0040B7D7 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		3D251ACE255DD4200040B7D7 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		3D251AD3255DEA850040B7D7 /* PreviewMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewMockData.swift; sourceTree = "<group>"; };
+		3DC5920A255EFF2B0051F5E6 /* JoyStickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoyStickView.swift; sourceTree = "<group>"; };
+		3DC5920E255F0B790051F5E6 /* FlipButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipButtonView.swift; sourceTree = "<group>"; };
+		3DC59212255F21F70051F5E6 /* FileManager+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Ext.swift"; sourceTree = "<group>"; };
 		3DDFBC63255DD1CA00360CE2 /* Detris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Detris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DDFBC66255DD1CA00360CE2 /* DetrisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetrisApp.swift; sourceTree = "<group>"; };
-		3DDFBC68255DD1CA00360CE2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3DDFBC6A255DD1D200360CE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DDFBC6D255DD1D200360CE2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3DDFBC6F255DD1D200360CE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -53,6 +57,8 @@
 				3D251ABF255DD30F0040B7D7 /* InitialView.swift */,
 				3D251AC3255DD3200040B7D7 /* GameView.swift */,
 				3D251AC6255DD3290040B7D7 /* GridView.swift */,
+				3DC5920A255EFF2B0051F5E6 /* JoyStickView.swift */,
+				3DC5920E255F0B790051F5E6 /* FlipButtonView.swift */,
 				3D251ACA255DD35E0040B7D7 /* GameViewModel.swift */,
 			);
 			path = Views;
@@ -71,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				3D251AD3255DEA850040B7D7 /* PreviewMockData.swift */,
+				3DC59212255F21F70051F5E6 /* FileManager+Ext.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -98,7 +105,6 @@
 				3D251ABE255DD2D70040B7D7 /* Model */,
 				3D251AC9255DD33B0040B7D7 /* Helpers */,
 				3DDFBC66255DD1CA00360CE2 /* DetrisApp.swift */,
-				3DDFBC68255DD1CA00360CE2 /* ContentView.swift */,
 				3DDFBC6A255DD1D200360CE2 /* Assets.xcassets */,
 				3DDFBC6F255DD1D200360CE2 /* Info.plist */,
 				3DDFBC6C255DD1D200360CE2 /* Preview Content */,
@@ -183,12 +189,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DDFBC69255DD1CA00360CE2 /* ContentView.swift in Sources */,
+				3DC5920F255F0B790051F5E6 /* FlipButtonView.swift in Sources */,
 				3D251AC0255DD30F0040B7D7 /* InitialView.swift in Sources */,
+				3DC59213255F21F70051F5E6 /* FileManager+Ext.swift in Sources */,
 				3D251AD4255DEA850040B7D7 /* PreviewMockData.swift in Sources */,
 				3DDFBC67255DD1CA00360CE2 /* DetrisApp.swift in Sources */,
 				3D251ABA255DD29B0040B7D7 /* BlockShapes.swift in Sources */,
 				3D251AC7255DD3290040B7D7 /* GridView.swift in Sources */,
+				3DC5920B255EFF2B0051F5E6 /* JoyStickView.swift in Sources */,
 				3D251AC4255DD3200040B7D7 /* GameView.swift in Sources */,
 				3D251ACB255DD35E0040B7D7 /* GameViewModel.swift in Sources */,
 				3D251ACF255DD4200040B7D7 /* Game.swift in Sources */,

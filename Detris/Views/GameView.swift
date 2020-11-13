@@ -12,8 +12,19 @@ struct GameView: View {
     
     var body: some View {
         VStack {
-            Text("This")
+            HStack {
+                Text("Score: \(viewModel.score)")
+                Text("Next: \(viewModel.nextBlock.blockType.rawValue)")
+            }
             GridView(viewModel: viewModel)
+            HStack(alignment: .top) {
+                JoyStickView(viewModel: viewModel)
+                Spacer()
+                FlipButtonView(viewModel: viewModel)
+                    .frame(width: 80, height: 80)
+            }
+            .padding(.horizontal, 20)
+            .padding(.top)
         }
     }
 }

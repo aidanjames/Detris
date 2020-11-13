@@ -10,10 +10,10 @@ import Foundation
 struct Game {
     var score = 0
     var level = 1
+    var timeInterval: Double = 1
     var currentShape: BlockShape
     var nextShape: BlockShape
-    #warning("Do not initialise blockPile when you actually start testing")
-    var blockPile: [BlockShape] = PreviewMockData.shared.blockPile
+    var blockPile: [BlockShape] = []
     
     init() {
         self.currentShape = Game.generateRandomBlockShape()
@@ -21,6 +21,29 @@ struct Game {
     }
     
     static func generateRandomBlockShape() -> BlockShape {
-        return SquareBlock()
+        let randomBlockType = BlockType.allCases.randomElement()
+        
+        switch randomBlockType {
+        case .straightBlock:
+            return StraightBlock()
+        case .squareBlock:
+            return SquareBlock()
+        case .tBlock:
+            return TBlock()
+        case .lBlock:
+            return LBlock()
+        case .reverseLBlock:
+            return ReverseLBlock()
+        default:
+            fatalError("We shouldn't be here")
+        }
     }
+    
+}
+
+enum CurrentGame: String {
+    case score = "CurrentGameScore"
+    case level = "CurrentGameLevel"
+    case timeInterval = "CurrentGameTimeInterval"
+    case currentShape = "CurrentGameCurrentShape"
 }

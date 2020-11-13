@@ -9,17 +9,35 @@ import SwiftUI
 
 
 enum SingleBrick {
-    static let size: CGFloat = 25
+    #warning("Determine size based on device size...")
+    static let size: CGFloat = 27
 }
 
-protocol BlockShape {
+enum BrickColor {
+    static func fetchColor(for blockType: BlockType) -> Color {
+        switch blockType {
+        case .straightBlock:
+            return .blue
+        case .squareBlock:
+            return .yellow
+        case .tBlock:
+            return .pink
+        case .lBlock:
+            return .red
+        case .reverseLBlock:
+            return .green
+        }
+    }
+}
+
+protocol BlockShape: Codable {
     var currentPosition: [Int] { get set }
-    var color: Color { get }
     var blockType: BlockType { get }
     var flipCount: Int { get set}
 }
 
-enum BlockType: CaseIterable {
+
+enum BlockType: String, CaseIterable, Codable {
     case straightBlock
     case squareBlock
     case tBlock
@@ -27,37 +45,32 @@ enum BlockType: CaseIterable {
     case reverseLBlock
 }
 
-struct StraightBlock: BlockShape {
+struct StraightBlock: BlockShape, Codable {
     var currentPosition = [14, 15, 16, 17]
-    var color: Color = .blue
     var blockType: BlockType = .straightBlock
     var flipCount: Int = 0
 }
 
-struct SquareBlock: BlockShape {
+struct SquareBlock: BlockShape, Codable {
     var currentPosition = [15, 16, 25, 26]
-    var color: Color = .yellow
     var blockType: BlockType = .squareBlock
     var flipCount: Int = 0
 }
 
-struct TBlock: BlockShape {
+struct TBlock: BlockShape, Codable {
     var currentPosition = [24, 25, 26, 15]
-    var color: Color = .pink
     var blockType: BlockType = .tBlock
     var flipCount: Int = 0
 }
 
-struct LBlock: BlockShape {
+struct LBlock: BlockShape, Codable {
     var currentPosition = [24, 25, 26, 16]
-    var color: Color = .green
     var blockType: BlockType = .lBlock
     var flipCount: Int = 0
 }
 
-struct ReverseLBlock: BlockShape {
+struct ReverseLBlock: BlockShape, Codable {
     var currentPosition = [24, 25, 26, 14]
-    var color: Color = .red
     var blockType: BlockType = .reverseLBlock
-    var flipCount: Int = 0
+    var flipCount: Int = 0    
 }
