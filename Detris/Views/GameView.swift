@@ -12,27 +12,30 @@ struct GameView: View {
     
     var body: some View {
         VStack {
-            VStack {
-                HStack {
-                    Text("Score: \(viewModel.score)")
-                    NextBlockDisplayView(nextBlockShape: viewModel.nextBlock.blockType)
-
-                }
-                HStack {
-                    Text("Level: \(viewModel.level)")
-                    Button(action: {
-                        if viewModel.inprogress {
-                            viewModel.pauseGame()
-                        } else {
-                            viewModel.startGame()
+            if !viewModel.gameOver {
+                VStack {
+                    HStack {
+                        Text("Score: \(viewModel.score)")
+                        NextBlockDisplayView(nextBlockShape: viewModel.nextBlock.blockType)
+                    }
+                    HStack {
+                        Text("Level: \(viewModel.level)")
+                        Button(action: {
+                            if viewModel.inprogress {
+                                viewModel.pauseGame()
+                            } else {
+                                viewModel.startGame()
+                            }
+                        } ) {
+                            Image(systemName: viewModel.inprogress ? "pause.circle.fill" : "play.circle.fill")
                         }
-                    } ) {
-                        Image(systemName: viewModel.inprogress ? "pause.circle.fill" : "play.circle.fill")
-                    }
-                    Button(action: { viewModel.incrementLevel() } ) {
-                        Image(systemName: "plus.circle.fill")
+                        Button(action: { viewModel.incrementLevel() } ) {
+                            Image(systemName: "plus.circle.fill")
+                        }
                     }
                 }
+            } else {
+                Text("GAME OVER").font(.largeTitle)
             }
             GridView(viewModel: viewModel)
             HStack(alignment: .top) {
