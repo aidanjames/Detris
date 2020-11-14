@@ -31,6 +31,7 @@ struct GridView: View {
                     Rectangle()
                         .frame(height: SingleBrick.size)
                         .foregroundColor(blockColour(for: i))
+                    #warning("Get rid of this")
                     Text("\(i)")
                         .font(.caption2)
                         .foregroundColor(.white)

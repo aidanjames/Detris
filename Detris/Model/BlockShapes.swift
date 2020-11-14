@@ -76,7 +76,7 @@ struct LBlock: BlockShape, Codable {
 }
 
 struct ReverseLBlock: BlockShape, Codable {
-    var currentPosition = [24, 25, 26, 16]
+    var currentPosition = [24, 25, 26, 14]
     var blockType: BlockType = .reverseLBlock
     var flipCount: Int = 0    
 }

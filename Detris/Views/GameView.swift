@@ -15,7 +15,11 @@ struct GameView: View {
             VStack {
                 HStack {
                     Text("Score: \(viewModel.score)")
-                    Text("Next: \(viewModel.nextBlock.blockType.rawValue)")
+                    NextBlockDisplayView(nextBlockShape: viewModel.nextBlock.blockType)
+
+                }
+                HStack {
+                    Text("Level: \(viewModel.level)")
                     Button(action: {
                         if viewModel.inprogress {
                             viewModel.pauseGame()
@@ -28,10 +32,6 @@ struct GameView: View {
                     Button(action: { viewModel.incrementLevel() } ) {
                         Image(systemName: "plus.circle.fill")
                     }
-                }
-                HStack {
-                    Text("Level: \(viewModel.level)")
-                    Text("Interval: \(viewModel.interval)")
                 }
             }
             GridView(viewModel: viewModel)

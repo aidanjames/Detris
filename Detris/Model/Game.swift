@@ -22,6 +22,7 @@ struct Game {
     }
     
     static func generateRandomBlockShape() -> BlockShape {
+        return LSkewBlock()
         let randomBlockType = BlockType.allCases.randomElement()
         
         switch randomBlockType {

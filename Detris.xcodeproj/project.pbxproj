@@ -14,6 +14,14 @@
 		3D251ACB255DD35E0040B7D7 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D251ACA255DD35E0040B7D7 /* GameViewModel.swift */; };
 		3D251ACF255DD4200040B7D7 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D251ACE255DD4200040B7D7 /* Game.swift */; };
 		3D251AD4255DEA850040B7D7 /* PreviewMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D251AD3255DEA850040B7D7 /* PreviewMockData.swift */; };
+		3DC54D74255FFA510062ECC2 /* NextBlockDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC54D73255FFA510062ECC2 /* NextBlockDisplayView.swift */; };
+		3DC54D78255FFAE90062ECC2 /* StraightBlockPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC54D77255FFAE90062ECC2 /* StraightBlockPreview.swift */; };
+		3DC54D7C255FFBFF0062ECC2 /* SquareBlockPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC54D7B255FFBFF0062ECC2 /* SquareBlockPreview.swift */; };
+		3DC54D7F2560054A0062ECC2 /* TBlockPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC54D7E2560054A0062ECC2 /* TBlockPreview.swift */; };
+		3DC54D82256005A60062ECC2 /* LBlockPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC54D81256005A60062ECC2 /* LBlockPreview.swift */; };
+		3DC54D852560069C0062ECC2 /* ReverseLBlockPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC54D842560069C0062ECC2 /* ReverseLBlockPreview.swift */; };
+		3DC54D88256006D80062ECC2 /* LSkewBlockPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC54D87256006D80062ECC2 /* LSkewBlockPreview.swift */; };
+		3DC54D8B256007250062ECC2 /* RSkewBlockPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC54D8A256007250062ECC2 /* RSkewBlockPreview.swift */; };
 		3DC5920B255EFF2B0051F5E6 /* JoyStickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC5920A255EFF2B0051F5E6 /* JoyStickView.swift */; };
 		3DC5920F255F0B790051F5E6 /* FlipButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC5920E255F0B790051F5E6 /* FlipButtonView.swift */; };
 		3DC59213255F21F70051F5E6 /* FileManager+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC59212255F21F70051F5E6 /* FileManager+Ext.swift */; };
@@ -30,6 +38,14 @@
 		3D251ACA255DD35E0040B7D7 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		3D251ACE255DD4200040B7D7 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		3D251AD3255DEA850040B7D7 /* PreviewMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewMockData.swift; sourceTree = "<group>"; };
+		3DC54D73255FFA510062ECC2 /* NextBlockDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextBlockDisplayView.swift; sourceTree = "<group>"; };
+		3DC54D77255FFAE90062ECC2 /* StraightBlockPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StraightBlockPreview.swift; sourceTree = "<group>"; };
+		3DC54D7B255FFBFF0062ECC2 /* SquareBlockPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareBlockPreview.swift; sourceTree = "<group>"; };
+		3DC54D7E2560054A0062ECC2 /* TBlockPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBlockPreview.swift; sourceTree = "<group>"; };
+		3DC54D81256005A60062ECC2 /* LBlockPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBlockPreview.swift; sourceTree = "<group>"; };
+		3DC54D842560069C0062ECC2 /* ReverseLBlockPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseLBlockPreview.swift; sourceTree = "<group>"; };
+		3DC54D87256006D80062ECC2 /* LSkewBlockPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSkewBlockPreview.swift; sourceTree = "<group>"; };
+		3DC54D8A256007250062ECC2 /* RSkewBlockPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSkewBlockPreview.swift; sourceTree = "<group>"; };
 		3DC5920A255EFF2B0051F5E6 /* JoyStickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoyStickView.swift; sourceTree = "<group>"; };
 		3DC5920E255F0B790051F5E6 /* FlipButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipButtonView.swift; sourceTree = "<group>"; };
 		3DC59212255F21F70051F5E6 /* FileManager+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Ext.swift"; sourceTree = "<group>"; };
@@ -60,6 +76,7 @@
 				3DC5920A255EFF2B0051F5E6 /* JoyStickView.swift */,
 				3DC5920E255F0B790051F5E6 /* FlipButtonView.swift */,
 				3D251ACA255DD35E0040B7D7 /* GameViewModel.swift */,
+				3DC54D76255FFABC0062ECC2 /* NextBlockDisplayViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -80,6 +97,21 @@
 				3DC59212255F21F70051F5E6 /* FileManager+Ext.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3DC54D76255FFABC0062ECC2 /* NextBlockDisplayViews */ = {
+			isa = PBXGroup;
+			children = (
+				3DC54D73255FFA510062ECC2 /* NextBlockDisplayView.swift */,
+				3DC54D77255FFAE90062ECC2 /* StraightBlockPreview.swift */,
+				3DC54D7B255FFBFF0062ECC2 /* SquareBlockPreview.swift */,
+				3DC54D7E2560054A0062ECC2 /* TBlockPreview.swift */,
+				3DC54D81256005A60062ECC2 /* LBlockPreview.swift */,
+				3DC54D842560069C0062ECC2 /* ReverseLBlockPreview.swift */,
+				3DC54D87256006D80062ECC2 /* LSkewBlockPreview.swift */,
+				3DC54D8A256007250062ECC2 /* RSkewBlockPreview.swift */,
+			);
+			path = NextBlockDisplayViews;
 			sourceTree = "<group>";
 		};
 		3DDFBC5A255DD1CA00360CE2 = {
@@ -190,16 +222,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DC5920F255F0B790051F5E6 /* FlipButtonView.swift in Sources */,
+				3DC54D8B256007250062ECC2 /* RSkewBlockPreview.swift in Sources */,
 				3D251AC0255DD30F0040B7D7 /* InitialView.swift in Sources */,
 				3DC59213255F21F70051F5E6 /* FileManager+Ext.swift in Sources */,
 				3D251AD4255DEA850040B7D7 /* PreviewMockData.swift in Sources */,
 				3DDFBC67255DD1CA00360CE2 /* DetrisApp.swift in Sources */,
+				3DC54D88256006D80062ECC2 /* LSkewBlockPreview.swift in Sources */,
+				3DC54D7F2560054A0062ECC2 /* TBlockPreview.swift in Sources */,
+				3DC54D78255FFAE90062ECC2 /* StraightBlockPreview.swift in Sources */,
+				3DC54D82256005A60062ECC2 /* LBlockPreview.swift in Sources */,
 				3D251ABA255DD29B0040B7D7 /* BlockShapes.swift in Sources */,
 				3D251AC7255DD3290040B7D7 /* GridView.swift in Sources */,
 				3DC5920B255EFF2B0051F5E6 /* JoyStickView.swift in Sources */,
+				3DC54D852560069C0062ECC2 /* ReverseLBlockPreview.swift in Sources */,
+				3DC54D74255FFA510062ECC2 /* NextBlockDisplayView.swift in Sources */,
 				3D251AC4255DD3200040B7D7 /* GameView.swift in Sources */,
 				3D251ACB255DD35E0040B7D7 /* GameViewModel.swift in Sources */,
 				3D251ACF255DD4200040B7D7 /* Game.swift in Sources */,
+				3DC54D7C255FFBFF0062ECC2 /* SquareBlockPreview.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
