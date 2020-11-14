@@ -288,66 +288,66 @@ class GameViewModel: ObservableObject {
             }
         case .lSkewBlock:
             if currentBlock.flipCount == 0 {
+                // Pivot on 2
                 let proposedFlip1 = [currentBlock.currentPosition[0] + 2, currentBlock.currentPosition[1] + 11, currentBlock.currentPosition[2], currentBlock.currentPosition[3] + 9]
-                let proposedFlip2 = [currentBlock.currentPosition[0] + 11, currentBlock.currentPosition[1], currentBlock.currentPosition[2] - 9, currentBlock.currentPosition[3] - 20]
-                let proposedFlip3 = [currentBlock.currentPosition[0] - 9, currentBlock.currentPosition[1] - 20, currentBlock.currentPosition[2] - 31, currentBlock.currentPosition[3]]
+                // Pivot on 1
+                let proposedFlip2 = [currentBlock.currentPosition[0] - 9, currentBlock.currentPosition[1], currentBlock.currentPosition[2] - 11, currentBlock.currentPosition[3] - 2]
                 if flipAllowed(newPosition: proposedFlip1) {
                     game.currentShape.currentPosition = proposedFlip1
                     game.currentShape.flipCount = 1
-                    print("We're now in flipCount 1")
+                    print("We're now in flipCount 1 (pivoted on 2)")
                 }
                 else if flipAllowed(newPosition: proposedFlip2) {
                     game.currentShape.currentPosition = proposedFlip2
                     game.currentShape.flipCount = 1
-                    print("We're now in flipCount 1")
+                    print("We're now in flipCount 1 (pivoted on 1)")
                 }
-//                else if flipAllowed(newPosition: proposedFlip3) {
-//                    game.currentShape.currentPosition = proposedFlip3
-//                    game.currentShape.flipCount = 1
-//                    print("We're now in flipCount 1")
-//                }
             } else if currentBlock.flipCount == 1 {
+                // Pivot on 2
                 let proposedFlip1 = [currentBlock.currentPosition[0] - 2, currentBlock.currentPosition[1] - 11, currentBlock.currentPosition[2], currentBlock.currentPosition[3] - 9]
+                // Pivot on 1
                 let proposedFlip2 = [currentBlock.currentPosition[0] + 9, currentBlock.currentPosition[1], currentBlock.currentPosition[2] + 11, currentBlock.currentPosition[3] + 2]
-                let proposedFlip3 = [currentBlock.currentPosition[0] - 9, currentBlock.currentPosition[1], currentBlock.currentPosition[2] - 11, currentBlock.currentPosition[3] - 2]
                 if flipAllowed(newPosition: proposedFlip1) {
                     game.currentShape.currentPosition = proposedFlip1
                     game.currentShape.flipCount = 0
-                    print("We're now in flipCount 0")
-                }
-                else if flipAllowed(newPosition: proposedFlip2) {
+                    print("We're now in flipCount 0 (pivoted on 2)")
+                } else if flipAllowed(newPosition: proposedFlip2) {
                     game.currentShape.currentPosition = proposedFlip2
                     game.currentShape.flipCount = 0
-                    print("We're now in flipCount 0")
-                }
-                else if flipAllowed(newPosition: proposedFlip3) {
-                    game.currentShape.currentPosition = proposedFlip3
-                    game.currentShape.flipCount = 0
-                    print("We're now in flipCount 0")
+                    print("We're now in flipCount 0 (pivoted on 1)")
                 }
             }
-//            else if currentBlock.flipCount == 2 {
-//                let proposedFlip1 = [currentBlock.currentPosition[0] - 20, currentBlock.currentPosition[1] - 9, currentBlock.currentPosition[2], currentBlock.currentPosition[3] + 11]
-//                if flipAllowed(newPosition: proposedFlip1) {
-//                    game.currentShape.currentPosition = proposedFlip1
-//                    game.currentShape.flipCount = 3
-//                    print("We're now in flipCount 3")
-//                }
-//            } else if currentBlock.flipCount == 3 {
-//                let proposedFlip1 = [currentBlock.currentPosition[0] + 2, currentBlock.currentPosition[1] - 11, currentBlock.currentPosition[2], currentBlock.currentPosition[3] - 9]
-//                let proposedFlip2 = [currentBlock.currentPosition[0], currentBlock.currentPosition[1] - 9, currentBlock.currentPosition[2] - 18, currentBlock.currentPosition[3] - 11]
-//                if flipAllowed(newPosition: proposedFlip1) {
-//                    game.currentShape.currentPosition = proposedFlip1
-//                    game.currentShape.flipCount = 0
-//                    print("We're now in flipCount 0")
-//                } else if flipAllowed(newPosition: proposedFlip2) {
-//                    game.currentShape.currentPosition = proposedFlip2
-//                    game.currentShape.flipCount = 0
-//                    print("We're now in flipCount 0")
-//                }
-//            }
         case .rSkewBlock:
-            print("TODO")
+            if currentBlock.flipCount == 0 {
+                // Pivot on 2
+                let proposedFlip1 = [currentBlock.currentPosition[0] - 2, currentBlock.currentPosition[1] + 9, currentBlock.currentPosition[2], currentBlock.currentPosition[3] + 11]
+                // Pivot on 1
+                let proposedFlip2 = [currentBlock.currentPosition[0] - 11, currentBlock.currentPosition[1], currentBlock.currentPosition[2] - 9, currentBlock.currentPosition[3] + 2]
+                if flipAllowed(newPosition: proposedFlip1) {
+                    game.currentShape.currentPosition = proposedFlip1
+                    game.currentShape.flipCount = 1
+                    print("We're now in flipCount 1 (pivoted on 2)")
+                }
+                else if flipAllowed(newPosition: proposedFlip2) {
+                    game.currentShape.currentPosition = proposedFlip2
+                    game.currentShape.flipCount = 1
+                    print("We're now in flipCount 1 (pivoted on 1)")
+                }
+            } else if currentBlock.flipCount == 1 {
+                // Pivot on 2
+                let proposedFlip1 = [currentBlock.currentPosition[0] + 2, currentBlock.currentPosition[1] - 9, currentBlock.currentPosition[2], currentBlock.currentPosition[3] - 11]
+                // Pivot on 1
+                let proposedFlip2 = [currentBlock.currentPosition[0] + 11, currentBlock.currentPosition[1], currentBlock.currentPosition[2] + 9, currentBlock.currentPosition[3] - 2]
+                if flipAllowed(newPosition: proposedFlip1) {
+                    game.currentShape.currentPosition = proposedFlip1
+                    game.currentShape.flipCount = 0
+                    print("We're now in flipCount 0 (pivoted on 2)")
+                } else if flipAllowed(newPosition: proposedFlip2) {
+                    game.currentShape.currentPosition = proposedFlip2
+                    game.currentShape.flipCount = 0
+                    print("We're now in flipCount 0 (pivoted on 1)")
+                }
+            }
         }
     }
     

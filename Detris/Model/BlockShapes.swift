@@ -88,7 +88,7 @@ struct LSkewBlock: BlockShape, Codable {
 }
 
 struct RSkewBlock: BlockShape, Codable {
-    var currentPosition = [25, 16, 26, 17]
+    var currentPosition = [17, 16, 26, 25]
     var blockType: BlockType = .rSkewBlock
     var flipCount: Int = 0
 }
