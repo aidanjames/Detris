@@ -30,6 +30,7 @@ struct NextBlockDisplayView: View {
                 RSkewBlockPreview()
             }
         }
+        .frame(height: SingleBrick.size)
     }
 }
 

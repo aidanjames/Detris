@@ -19,7 +19,8 @@ struct GameView: View {
                         NextBlockDisplayView(nextBlockShape: viewModel.nextBlock.blockType)
                     }
                     HStack {
-                        Text("Level: \(viewModel.level)")
+//                        Text("Level: \(viewModel.level)")
+                        Text("Lines: \(viewModel.lines)")
                         Button(action: {
                             if viewModel.inprogress {
                                 viewModel.pauseGame()

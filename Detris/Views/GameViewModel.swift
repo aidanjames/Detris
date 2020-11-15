@@ -15,6 +15,7 @@ class GameViewModel: ObservableObject {
     var nextBlock: BlockShape { game.nextShape }
     var blockPile: [BlockShape] { game.blockPile }
     var level: Int { game.level }
+    var lines: Int { game.lines }
     var interval: Double { game.timeInterval }
     var timer: Timer?
     @Published var inprogress: Bool = false
@@ -156,14 +157,13 @@ class GameViewModel: ObservableObject {
         print("*****There are \(completedLInes.count) completed lines!*****")
         
         guard !completedLInes.isEmpty else { return }
+        self.game.lines += completedLInes.count
         
         // Remove positions from the block pile if they are included in a completed line
         for i in 0..<blockPile.count {
             for position in completedLInes.joined() {
                 if let index = self.game.blockPile[i].currentPosition.firstIndex(where: { $0 == position } ) {
-                    withAnimation {
-                        self.game.blockPile[i].currentPosition.remove(at: index)
-                    }
+                    self.game.blockPile[i].currentPosition.remove(at: index)
                 }
                 
             }

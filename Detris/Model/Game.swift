@@ -11,6 +11,7 @@ import Foundation
 struct Game {
     var score = 0
     var level = 1
+    var lines = 0
     var timeInterval: Double = 1
     var currentShape: BlockShape
     var nextShape: BlockShape
