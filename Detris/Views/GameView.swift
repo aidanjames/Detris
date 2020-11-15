@@ -11,42 +11,36 @@ struct GameView: View {
     @StateObject var viewModel = GameViewModel()
     
     var body: some View {
-        VStack {
-            if !viewModel.gameOver {
+        GeometryReader { geo in
+            ZStack {
                 VStack {
+                       HeaderView(viewModel: viewModel)
                     HStack {
-                        Text("Score: \(viewModel.score)")
-                        NextBlockDisplayView(nextBlockShape: viewModel.nextBlock.blockType)
+                        Spacer()
+                        GridView(viewModel: viewModel)
+                        RightSideView(viewModel: viewModel)
+                            .padding(.horizontal, 8)
                     }
-                    HStack {
-//                        Text("Level: \(viewModel.level)")
-                        Text("Lines: \(viewModel.lines)")
-                        Button(action: {
-                            if viewModel.inprogress {
-                                viewModel.pauseGame()
-                            } else {
-                                viewModel.startGame()
-                            }
-                        } ) {
-                            Image(systemName: viewModel.inprogress ? "pause.circle.fill" : "play.circle.fill")
-                        }
-                        Button(action: { viewModel.incrementLevel() } ) {
-                            Image(systemName: "plus.circle.fill")
-                        }
+                    HStack(alignment: .top) {
+                        JoyStickView(viewModel: viewModel)
+                        Spacer()
+                        FlipButtonView(viewModel: viewModel)
+                            .frame(width: 80, height: 80)
                     }
+                    .padding(.horizontal, 20)
+                    .padding(.top)
                 }
-            } else {
-                Text("GAME OVER").font(.largeTitle)
+                
+                Color.black.ignoresSafeArea().opacity(viewModel.gameOver || viewModel.gamePaused ? 0.4 : 0)
+                if viewModel.gameOver {
+                    GameOverView(viewModel: viewModel)
+                        .frame(width: geo.size.width * 0.8, height: geo.size.height * 0.4)
+                }
+                if viewModel.gamePaused && !viewModel.gameOver {
+                    GamePausedView(viewModel: viewModel)
+                        .frame(width: geo.size.width * 0.8, height: geo.size.height * 0.4)
+                }
             }
-            GridView(viewModel: viewModel)
-            HStack(alignment: .top) {
-                JoyStickView(viewModel: viewModel)
-                Spacer()
-                FlipButtonView(viewModel: viewModel)
-                    .frame(width: 80, height: 80)
-            }
-            .padding(.horizontal, 20)
-            .padding(.top)
         }
     }
 }

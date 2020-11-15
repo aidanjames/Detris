@@ -25,6 +25,11 @@
 		3DC5920B255EFF2B0051F5E6 /* JoyStickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC5920A255EFF2B0051F5E6 /* JoyStickView.swift */; };
 		3DC5920F255F0B790051F5E6 /* FlipButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC5920E255F0B790051F5E6 /* FlipButtonView.swift */; };
 		3DC59213255F21F70051F5E6 /* FileManager+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC59212255F21F70051F5E6 /* FileManager+Ext.swift */; };
+		3DD5D43425615B38007FC167 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD5D43325615B38007FC167 /* HapticsManager.swift */; };
+		3DD5D43725616045007FC167 /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD5D43625616045007FC167 /* GameOverView.swift */; };
+		3DD5D43C25616FCB007FC167 /* GamePausedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD5D43B25616FCB007FC167 /* GamePausedView.swift */; };
+		3DD5D4432561785C007FC167 /* RightSideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD5D4422561785C007FC167 /* RightSideView.swift */; };
+		3DD5D44825618099007FC167 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD5D44725618099007FC167 /* HeaderView.swift */; };
 		3DDFBC67255DD1CA00360CE2 /* DetrisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDFBC66255DD1CA00360CE2 /* DetrisApp.swift */; };
 		3DDFBC6B255DD1D200360CE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DDFBC6A255DD1D200360CE2 /* Assets.xcassets */; };
 		3DDFBC6E255DD1D200360CE2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DDFBC6D255DD1D200360CE2 /* Preview Assets.xcassets */; };
@@ -49,6 +54,11 @@
 		3DC5920A255EFF2B0051F5E6 /* JoyStickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoyStickView.swift; sourceTree = "<group>"; };
 		3DC5920E255F0B790051F5E6 /* FlipButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipButtonView.swift; sourceTree = "<group>"; };
 		3DC59212255F21F70051F5E6 /* FileManager+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Ext.swift"; sourceTree = "<group>"; };
+		3DD5D43325615B38007FC167 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
+		3DD5D43625616045007FC167 /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
+		3DD5D43B25616FCB007FC167 /* GamePausedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePausedView.swift; sourceTree = "<group>"; };
+		3DD5D4422561785C007FC167 /* RightSideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightSideView.swift; sourceTree = "<group>"; };
+		3DD5D44725618099007FC167 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		3DDFBC63255DD1CA00360CE2 /* Detris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Detris.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DDFBC66255DD1CA00360CE2 /* DetrisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetrisApp.swift; sourceTree = "<group>"; };
 		3DDFBC6A255DD1D200360CE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,15 +77,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D08202525612CA000EBCAC1 /* JoyStickViews */ = {
+			isa = PBXGroup;
+			children = (
+				3DC5920A255EFF2B0051F5E6 /* JoyStickView.swift */,
+				3DC5920E255F0B790051F5E6 /* FlipButtonView.swift */,
+			);
+			path = JoyStickViews;
+			sourceTree = "<group>";
+		};
 		3D251ABD255DD2CA0040B7D7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				3D251ABF255DD30F0040B7D7 /* InitialView.swift */,
 				3D251AC3255DD3200040B7D7 /* GameView.swift */,
 				3D251AC6255DD3290040B7D7 /* GridView.swift */,
-				3DC5920A255EFF2B0051F5E6 /* JoyStickView.swift */,
-				3DC5920E255F0B790051F5E6 /* FlipButtonView.swift */,
+				3DD5D44725618099007FC167 /* HeaderView.swift */,
+				3DD5D4422561785C007FC167 /* RightSideView.swift */,
+				3DD5D43625616045007FC167 /* GameOverView.swift */,
+				3DD5D43B25616FCB007FC167 /* GamePausedView.swift */,
 				3D251ACA255DD35E0040B7D7 /* GameViewModel.swift */,
+				3D08202525612CA000EBCAC1 /* JoyStickViews */,
 				3DC54D76255FFABC0062ECC2 /* NextBlockDisplayViews */,
 			);
 			path = Views;
@@ -95,6 +117,7 @@
 			children = (
 				3D251AD3255DEA850040B7D7 /* PreviewMockData.swift */,
 				3DC59212255F21F70051F5E6 /* FileManager+Ext.swift */,
+				3DD5D43325615B38007FC167 /* HapticsManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -221,12 +244,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DD5D4432561785C007FC167 /* RightSideView.swift in Sources */,
 				3DC5920F255F0B790051F5E6 /* FlipButtonView.swift in Sources */,
 				3DC54D8B256007250062ECC2 /* RSkewBlockPreview.swift in Sources */,
 				3D251AC0255DD30F0040B7D7 /* InitialView.swift in Sources */,
 				3DC59213255F21F70051F5E6 /* FileManager+Ext.swift in Sources */,
 				3D251AD4255DEA850040B7D7 /* PreviewMockData.swift in Sources */,
 				3DDFBC67255DD1CA00360CE2 /* DetrisApp.swift in Sources */,
+				3DD5D44825618099007FC167 /* HeaderView.swift in Sources */,
+				3DD5D43C25616FCB007FC167 /* GamePausedView.swift in Sources */,
 				3DC54D88256006D80062ECC2 /* LSkewBlockPreview.swift in Sources */,
 				3DC54D7F2560054A0062ECC2 /* TBlockPreview.swift in Sources */,
 				3DC54D78255FFAE90062ECC2 /* StraightBlockPreview.swift in Sources */,
@@ -239,7 +265,9 @@
 				3D251AC4255DD3200040B7D7 /* GameView.swift in Sources */,
 				3D251ACB255DD35E0040B7D7 /* GameViewModel.swift in Sources */,
 				3D251ACF255DD4200040B7D7 /* Game.swift in Sources */,
+				3DD5D43425615B38007FC167 /* HapticsManager.swift in Sources */,
 				3DC54D7C255FFBFF0062ECC2 /* SquareBlockPreview.swift in Sources */,
+				3DD5D43725616045007FC167 /* GameOverView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

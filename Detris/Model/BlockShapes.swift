@@ -29,7 +29,7 @@ enum BrickColor {
         case .lSkewBlock:
             return .orange
         case .rSkewBlock:
-            return .black
+            return .primary
         }
     }
 }

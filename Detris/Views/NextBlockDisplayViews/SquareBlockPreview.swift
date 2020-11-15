@@ -11,14 +11,14 @@ struct SquareBlockPreview: View {
     let brickSize = SingleBrick.size / 2
     
     var body: some View {
-        VStack(spacing: 1) {
-            HStack(spacing: 1) {
+        VStack(spacing: 0.5) {
+            HStack(spacing: 0.5) {
                 Rectangle()
                     .frame(width: brickSize, height: brickSize)
                 Rectangle()
                     .frame(width: brickSize, height: brickSize)
             }
-            HStack(spacing: 1) {
+            HStack(spacing: 0.5) {
                 Rectangle()
                     .frame(width: brickSize, height: brickSize)
                 Rectangle()

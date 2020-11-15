@@ -12,24 +12,24 @@ struct GridView: View {
     @ObservedObject var viewModel: GameViewModel
     
     let columns = [
-        GridItem(.fixed(SingleBrick.size), spacing: 1),
-        GridItem(.fixed(SingleBrick.size), spacing: 1),
-        GridItem(.fixed(SingleBrick.size), spacing: 1),
-        GridItem(.fixed(SingleBrick.size), spacing: 1),
-        GridItem(.fixed(SingleBrick.size), spacing: 1),
-        GridItem(.fixed(SingleBrick.size), spacing: 1),
-        GridItem(.fixed(SingleBrick.size), spacing: 1),
-        GridItem(.fixed(SingleBrick.size), spacing: 1),
-        GridItem(.fixed(SingleBrick.size), spacing: 1),
-        GridItem(.fixed(SingleBrick.size), spacing: 1)
+        GridItem(.fixed(SingleBrick.size), spacing: 0.5),
+        GridItem(.fixed(SingleBrick.size), spacing: 0.5),
+        GridItem(.fixed(SingleBrick.size), spacing: 0.5),
+        GridItem(.fixed(SingleBrick.size), spacing: 0.5),
+        GridItem(.fixed(SingleBrick.size), spacing: 0.5),
+        GridItem(.fixed(SingleBrick.size), spacing: 0.5),
+        GridItem(.fixed(SingleBrick.size), spacing: 0.5),
+        GridItem(.fixed(SingleBrick.size), spacing: 0.5),
+        GridItem(.fixed(SingleBrick.size), spacing: 0.5),
+        GridItem(.fixed(SingleBrick.size), spacing: 0.5)
     ]
     
     var body: some View {
-        LazyVGrid(columns: columns, spacing: 1) {
+        LazyVGrid(columns: columns, spacing: 0.5) {
             ForEach(1...210, id: \.self) { i in
                 ZStack {
                     Rectangle()
-                        .frame(height: SingleBrick.size)
+                        .frame(width: SingleBrick.size, height: SingleBrick.size)
                         .foregroundColor(blockColour(for: i))
 //                    #warning("Get rid of this")
 //                    Text("\(i)")
@@ -50,7 +50,7 @@ struct GridView: View {
                 
             }
         }
-        return .gray
+        return Color.secondary.opacity(0.2)
     }
 }
 

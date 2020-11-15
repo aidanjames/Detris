@@ -10,6 +10,7 @@ import Foundation
 #warning("Make ths conform to codable so can save the game")
 struct Game {
     var score = 0
+    var highScore = 0
     var level = 1
     var lines = 0
     var timeInterval: Double = 1
@@ -20,6 +21,7 @@ struct Game {
     init() {
         self.currentShape = Game.generateRandomBlockShape()
         self.nextShape = Game.generateRandomBlockShape()
+        self.highScore = UserDefaults.standard.integer(forKey: "HighScore")
     }
     
     static func generateRandomBlockShape() -> BlockShape {

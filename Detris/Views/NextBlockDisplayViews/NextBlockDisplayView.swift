@@ -11,8 +11,7 @@ struct NextBlockDisplayView: View {
     var nextBlockShape: BlockType
     
     var body: some View {
-        HStack {
-            Text("Next:")
+        HStack(alignment: .bottom) {
             switch nextBlockShape {
             case .straightBlock:
                 StraightBlockPreview()

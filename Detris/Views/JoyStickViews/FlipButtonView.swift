@@ -19,6 +19,7 @@ struct FlipButtonView: View {
                     .foregroundColor(.white)
             }
         }
+        .disabled(!viewModel.inprogress)
     }
 }
 

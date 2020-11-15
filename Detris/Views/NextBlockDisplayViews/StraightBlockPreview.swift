@@ -11,7 +11,7 @@ struct StraightBlockPreview: View {
     let brickSize = SingleBrick.size / 2
 
     var body: some View {
-        HStack(spacing: 1) {
+        VStack(spacing: 0.5) {
             Rectangle()
                 .frame(width: brickSize, height: brickSize)
             Rectangle()

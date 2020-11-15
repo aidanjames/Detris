@@ -17,8 +17,10 @@ class GameViewModel: ObservableObject {
     var level: Int { game.level }
     var lines: Int { game.lines }
     var interval: Double { game.timeInterval }
+    var highScore: Int { game.highScore }
     var timer: Timer?
     @Published var inprogress: Bool = false
+    @Published var gamePaused: Bool = false
     @Published var gameOver: Bool = false
     
     
@@ -27,30 +29,133 @@ class GameViewModel: ObservableObject {
     }
     
     func startGame() {
+        game.score = 0
+        game.level = 1
+        game.lines = 0
+        game.timeInterval = 1
+        game.blockPile = []
+        game.currentShape = Game.generateRandomBlockShape()
+        game.nextShape = Game.generateRandomBlockShape()
+        gameOver = false
+        
+        resumeGame()
+    }
+    
+    func pauseGame() {
+        inprogress = false
+        gamePaused = true
+        timer?.invalidate()
+    }
+    
+    func resumeGame() {
         inprogress = true
+        gamePaused = false
         timer = Timer.scheduledTimer(withTimeInterval: game.timeInterval, repeats: true) { timer in
             self.moveCurrentBlockDown()
         }
     }
     
-    func pauseGame() {
-        inprogress = false
-        timer?.invalidate()
-    }
-    
     func incrementScoreBy(amount: Int) {
-        game.score += amount
-        // Perhaps increment level
+        withAnimation {
+            game.score += amount
+            if score > game.highScore {
+                game.highScore = score
+                UserDefaults.standard.set(game.highScore, forKey: "HighScore")
+            }
+        }
+
+        
+        checkLevel()
     }
     
-    func incrementLevel() {
-        guard game.timeInterval > 0.05 else {
+    func checkLevel() {
+        switch game.lines {
+        case 10..<20:
+            if level != 2 {
+                game.level = 2
+                reduceTimeInterval()
+            }
+        case 20..<30:
+            if level != 3 {
+                game.level = 3
+                reduceTimeInterval()
+            }
+        case 30..<40:
+            if level != 4 {
+                game.level = 4
+                reduceTimeInterval()
+            }
+        case 40..<50:
+            if level != 5 {
+                game.level = 5
+                reduceTimeInterval()
+            }
+        case 50..<60:
+            if level != 6 {
+                game.level = 6
+                reduceTimeInterval()
+            }
+        case 60..<70:
+            if level != 7 {
+                game.level = 7
+                reduceTimeInterval()
+            }
+        case 70..<80:
+            if level != 8 {
+                game.level = 8
+                reduceTimeInterval()
+            }
+        case 80..<90:
+            if level != 9 {
+                game.level = 9
+                reduceTimeInterval()
+            }
+        case 90..<100:
+            if level != 10 {
+                game.level = 10
+                reduceTimeInterval()
+            }
+        case 100..<110:
+            if level != 11 {
+                game.level = 11
+                reduceTimeInterval()
+            }
+        case 110..<120:
+            if level != 12 {
+                game.level = 12
+                reduceTimeInterval()
+            }
+        case 120..<130:
+            if level != 13 {
+                game.level = 13
+                reduceTimeInterval()
+            }
+        case 130..<140:
+            if level != 14 {
+                game.level = 14
+                reduceTimeInterval()
+            }
+        case 140...:
+            if level != 15 {
+                game.level = 15
+                reduceTimeInterval()
+            }
+        default:
+            game.level = 1
+            game.timeInterval = 1
+        }
+        
+        
+        
+    }
+    
+    func reduceTimeInterval() {
+        guard game.timeInterval > 0.10 else {
             return
         }
-        game.level += 1
         pauseGame()
-        game.timeInterval -= 0.05
-        startGame()
+        game.timeInterval -= 0.10
+        resumeGame()
     }
     
     func addToBlockPile(block: BlockShape) {
@@ -61,7 +166,9 @@ class GameViewModel: ObservableObject {
         for block in blockPile {
             for position in currentBlock.currentPosition {
                 if block.currentPosition.contains(position) {
-                    gameOver = true
+                    withAnimation {
+                        gameOver = true
+                    }
                     inprogress = false
                     pauseGame()
                 }
@@ -78,9 +185,9 @@ class GameViewModel: ObservableObject {
             for position in currentBlock.currentPosition {
                 if block.currentPosition.contains(position - 1) { return }
             }
-            
         }
         game.currentShape.currentPosition = currentBlock.currentPosition.map { $0 - 1 }
+        //        HapticsManager.shared.moveHaptic()
     }
     
     func moveCurrentBlockRight() {
@@ -94,6 +201,13 @@ class GameViewModel: ObservableObject {
             }
         }
         game.currentShape.currentPosition = currentBlock.currentPosition.map { $0 + 1 }
+        //        HapticsManager.shared.moveHaptic()
+    }
+    
+    func moveDownButtonPressed() {
+        moveCurrentBlockDown()
+        
+        //        HapticsManager.shared.moveHaptic()
     }
     
     func moveCurrentBlockDown() {
@@ -129,7 +243,6 @@ class GameViewModel: ObservableObject {
             allPositionsInBlockPile.append(block.currentPosition)
         }
         let allPositionsInBlockPileFlattened = allPositionsInBlockPile.joined().sorted()
-        print(allPositionsInBlockPileFlattened)
         
         if Array(1...10).allSatisfy(allPositionsInBlockPileFlattened.contains) { completedLInes.append(Array(1...10)) }
         if Array(11...20).allSatisfy(allPositionsInBlockPileFlattened.contains) { completedLInes.append(Array(11...20)) }
@@ -153,9 +266,6 @@ class GameViewModel: ObservableObject {
         if Array(191...200).allSatisfy(allPositionsInBlockPileFlattened.contains) { completedLInes.append(Array(191...200)) }
         if Array(201...210).allSatisfy(allPositionsInBlockPileFlattened.contains) { completedLInes.append(Array(201...210)) }
         
-        // A count of lines can be used to determine if tetris has been achieved
-        print("*****There are \(completedLInes.count) completed lines!*****")
-        
         guard !completedLInes.isEmpty else { return }
         self.game.lines += completedLInes.count
         
@@ -165,7 +275,6 @@ class GameViewModel: ObservableObject {
                 if let index = self.game.blockPile[i].currentPosition.firstIndex(where: { $0 == position } ) {
                     self.game.blockPile[i].currentPosition.remove(at: index)
                 }
-                
             }
         }
         
@@ -175,7 +284,6 @@ class GameViewModel: ObservableObject {
                 if let firstPosition = line.first {
                     for n in 0..<self.game.blockPile[i].currentPosition.count {
                         if firstPosition > self.game.blockPile[i].currentPosition[n] {
-                            print(self.game.blockPile[i].currentPosition[n])
                             withAnimation {
                                 self.game.blockPile[i].currentPosition[n] += 10
                             }
@@ -186,8 +294,26 @@ class GameViewModel: ObservableObject {
         }
         
         // Increment the score/level accordingly
+        if completedLInes.count == 1 {
+            print("We should be incrementing the score by \(100 * level)")
+            incrementScoreBy(amount: 100 * level)
+            HapticsManager.shared.prepareHaptics()
+            HapticsManager.shared.playHaptic(withIntensity: 0.5, andSharpness: 0.6)
+        } else if completedLInes.count == 2 {
+            incrementScoreBy(amount: 300 * level)
+            HapticsManager.shared.prepareHaptics()
+            HapticsManager.shared.playHaptic(withIntensity: 0.5, andSharpness: 0.6)
+        } else if completedLInes.count == 3 {
+            incrementScoreBy(amount: 500 * level)
+            HapticsManager.shared.prepareHaptics()
+            HapticsManager.shared.playHaptic(withIntensity: 0.6, andSharpness: 0.7)
+        } else if completedLInes.count == 4 {
+            incrementScoreBy(amount: 800 * level)
+            HapticsManager.shared.prepareHaptics()
+            HapticsManager.shared.playHaptic(withIntensity: 1, andSharpness: 1)
+        }
         
-        
+        checkLevel()
     }
     
     func flipCurrentBlock() {
@@ -412,12 +538,11 @@ class GameViewModel: ObservableObject {
         }
     }
     
+    
     func flipAllowed(newPosition: [Int]) -> Bool {
-        //        print("Proposing \(newPosition)")
         // Will it go through the bottom?
         for position in newPosition {
             if position > 210 {
-                //                print("We can't flip because it will fall through the floor.")
                 return false
             }
         }
@@ -433,7 +558,6 @@ class GameViewModel: ObservableObject {
             }
         }
         if leftBoundary && rightBoundary {
-            //            print("We can't flip because it will go through the wall.")
             return false
         }
         
@@ -441,7 +565,6 @@ class GameViewModel: ObservableObject {
         for block in blockPile {
             for position in newPosition {
                 if block.currentPosition.contains(position) {
-                    //                    print("We can't flip because it will collide with the block pile.")
                     return false
                 }
             }
