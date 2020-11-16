@@ -150,11 +150,11 @@ class GameViewModel: ObservableObject {
     }
     
     func reduceTimeInterval() {
-        guard game.timeInterval > 0.10 else {
+        guard game.timeInterval > 0.05 else {
             return
         }
         pauseGame()
-        game.timeInterval -= 0.10
+        game.timeInterval -= 0.05
         resumeGame()
     }
     
