@@ -14,6 +14,7 @@
 		3D251ACB255DD35E0040B7D7 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D251ACA255DD35E0040B7D7 /* GameViewModel.swift */; };
 		3D251ACF255DD4200040B7D7 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D251ACE255DD4200040B7D7 /* Game.swift */; };
 		3D251AD4255DEA850040B7D7 /* PreviewMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D251AD3255DEA850040B7D7 /* PreviewMockData.swift */; };
+		3DA4C481256453C900B1B653 /* SwipeableGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4C480256453C900B1B653 /* SwipeableGridView.swift */; };
 		3DC54D74255FFA510062ECC2 /* NextBlockDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC54D73255FFA510062ECC2 /* NextBlockDisplayView.swift */; };
 		3DC54D78255FFAE90062ECC2 /* StraightBlockPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC54D77255FFAE90062ECC2 /* StraightBlockPreview.swift */; };
 		3DC54D7C255FFBFF0062ECC2 /* SquareBlockPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC54D7B255FFBFF0062ECC2 /* SquareBlockPreview.swift */; };
@@ -43,6 +44,7 @@
 		3D251ACA255DD35E0040B7D7 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		3D251ACE255DD4200040B7D7 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		3D251AD3255DEA850040B7D7 /* PreviewMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewMockData.swift; sourceTree = "<group>"; };
+		3DA4C480256453C900B1B653 /* SwipeableGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableGridView.swift; sourceTree = "<group>"; };
 		3DC54D73255FFA510062ECC2 /* NextBlockDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextBlockDisplayView.swift; sourceTree = "<group>"; };
 		3DC54D77255FFAE90062ECC2 /* StraightBlockPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StraightBlockPreview.swift; sourceTree = "<group>"; };
 		3DC54D7B255FFBFF0062ECC2 /* SquareBlockPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareBlockPreview.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				3D251ABF255DD30F0040B7D7 /* InitialView.swift */,
 				3D251AC3255DD3200040B7D7 /* GameView.swift */,
 				3D251AC6255DD3290040B7D7 /* GridView.swift */,
+				3DA4C480256453C900B1B653 /* SwipeableGridView.swift */,
 				3DD5D44725618099007FC167 /* HeaderView.swift */,
 				3DD5D4422561785C007FC167 /* RightSideView.swift */,
 				3DD5D43625616045007FC167 /* GameOverView.swift */,
@@ -244,6 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DA4C481256453C900B1B653 /* SwipeableGridView.swift in Sources */,
 				3DD5D4432561785C007FC167 /* RightSideView.swift in Sources */,
 				3DC5920F255F0B790051F5E6 /* FlipButtonView.swift in Sources */,
 				3DC54D8B256007250062ECC2 /* RSkewBlockPreview.swift in Sources */,

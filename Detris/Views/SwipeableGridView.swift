@@ -1,13 +1,13 @@
 //
-//  GridView.swift
+//  SwipeableGridView.swift
 //  Detris
 //
-//  Created by Aidan Pendlebury on 12/11/2020.
+//  Created by Aidan Pendlebury on 17/11/2020.
 //
 
 import SwiftUI
 
-struct GridView: View {
+struct SwipeableGridView: View {
     
     @ObservedObject var viewModel: GameViewModel
     
@@ -34,6 +34,15 @@ struct GridView: View {
                 }
             }
         }
+        .gesture(
+                DragGesture(minimumDistance: 50)
+                    .onChanged { value in
+                        print("Dragging! \(value)")
+                    }
+                    .onEnded { value in
+                        print("Dragged! \(value)")
+                    }
+            )
     }
     
     func blockColour(for block: Int) -> Color {
@@ -50,9 +59,8 @@ struct GridView: View {
     }
 }
 
-struct GridView_Previews: PreviewProvider {
+struct SwipeableGridView_Previews: PreviewProvider {
     static var previews: some View {
-        GridView(viewModel: GameViewModel())
+        SwipeableGridView(viewModel: GameViewModel())
     }
 }
-

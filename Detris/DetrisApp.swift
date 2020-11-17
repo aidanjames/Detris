@@ -12,6 +12,7 @@ struct DetrisApp: App {
     var body: some Scene {
         WindowGroup {
             InitialView()
+//            SwipeableGridView(viewModel: GameViewModel())
         }
     }
 }
