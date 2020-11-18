@@ -17,7 +17,8 @@ struct GameView: View {
                        HeaderView(viewModel: viewModel)
                     HStack {
                         Spacer()
-                        GridView(viewModel: viewModel)
+//                        GridView(viewModel: viewModel)
+                        SwipeableGridView(viewModel: viewModel)
                         RightSideView(viewModel: viewModel)
                             .padding(.horizontal, 8)
                     }

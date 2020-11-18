@@ -37,12 +37,26 @@ struct SwipeableGridView: View {
         .gesture(
                 DragGesture(minimumDistance: 50)
                     .onChanged { value in
-                        print("Dragging! \(value)")
+//                        print("Dragging! \(value.translation)")
+                        if value.location.y > value.startLocation.y {
+                            print("I've been moved down?")
+                            viewModel.moveCurrentBlockDown()
+                        } else if value.location.x < value.startLocation.x {
+//                            print("I've been dragged to the left...")
+                            viewModel.moveCurrentBlockLeft()
+                        } else if value.location.x > value.startLocation.x {
+//                            print("I've been dragged to the right...")
+                            viewModel.moveCurrentBlockRight()
+                        }
+                        
                     }
                     .onEnded { value in
-                        print("Dragged! \(value)")
+//                        print("Dragged! \(value.translation)")
                     }
             )
+        .onTapGesture {
+            viewModel.flipCurrentBlock()
+        }
     }
     
     func blockColour(for block: Int) -> Color {
