@@ -37,26 +37,51 @@ struct SwipeableGridView: View {
         .gesture(
                 DragGesture(minimumDistance: 50)
                     .onChanged { value in
-//                        let speed = value.pr
-////                        print("Dragging! \(value.translation)")
-                        if value.location.y * 0.6 > value.startLocation.y {
-                            print("I've been moved down?")
+                        if value.predictedEndTranslation.height > 300 {
+                            viewModel.moveCurrentBlockDown()
                             viewModel.moveCurrentBlockDown()
                         } else {
-                            if value.location.x * 0.7 < value.startLocation.x {
-    //                            print("I've been dragged to the left...")
+                            if value.predictedEndTranslation.width < -200 {
+                                viewModel.moveCurrentBlockLeft()
+                            } else if value.predictedEndTranslation.width < 0 && Int(value.predictedEndTranslation.width) % 10 == 0 {
                                 viewModel.moveCurrentBlockLeft()
                             }
-                            if value.location.x * 0.7 > value.startLocation.x {
-    //                            print("I've been dragged to the right...")
+                            
+                            if value.predictedEndTranslation.width > 100 {
+                                viewModel.moveCurrentBlockRight()
+                            } else if value.predictedEndTranslation.width > 0 && Int(value.predictedEndTranslation.width) % 10 == 0 {
                                 viewModel.moveCurrentBlockRight()
                             }
                         }
-                       
+                        
+                        
+                        
+                        
+//                        if value.location.y * 0.6 > value.startLocation.y {
+//                            print("I've been moved down?")
+//                            viewModel.moveCurrentBlockDown()
+//                        } else {
+//                            if value.location.x * 0.7 < value.startLocation.x {
+//    //                            print("I've been dragged to the left...")
+//                                viewModel.moveCurrentBlockLeft()
+//                            }
+//                            if value.location.x * 0.7 > value.startLocation.x {
+//    //                            print("I've been dragged to the right...")
+//                                viewModel.moveCurrentBlockRight()
+//                            }
+//                        }
+//                        if value.translation.width < -80 {
+//                            viewModel.moveCurrentBlockLeft()
+//                        }
+//
                         
                     }
                     .onEnded { value in
 //                        print("Dragged! \(value.translation)")
+                        print(value.translation)
+//                        if value.translation.width < -80 {
+//                            viewModel.moveCurrentBlockLeft()
+//                        }
                     }
             )
         .onTapGesture {
