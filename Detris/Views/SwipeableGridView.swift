@@ -31,62 +31,35 @@ struct SwipeableGridView: View {
                     Rectangle()
                         .frame(width: SingleBrick.size, height: SingleBrick.size)
                         .foregroundColor(blockColour(for: i))
+                    //                    Text("\(i)").font(.caption)
                 }
             }
         }
         .gesture(
-                DragGesture(minimumDistance: 50)
-                    .onChanged { value in
-                        if value.predictedEndTranslation.height > 300 {
-                            viewModel.moveCurrentBlockDown()
-                            viewModel.moveCurrentBlockDown()
-                        } else {
-                            if value.predictedEndTranslation.width < -200 {
-                                viewModel.moveCurrentBlockLeft()
-                            } else if value.predictedEndTranslation.width < 0 && Int(value.predictedEndTranslation.width) % 10 == 0 {
-                                viewModel.moveCurrentBlockLeft()
-                            }
-                            
-                            if value.predictedEndTranslation.width > 100 {
-                                viewModel.moveCurrentBlockRight()
-                            } else if value.predictedEndTranslation.width > 0 && Int(value.predictedEndTranslation.width) % 10 == 0 {
-                                viewModel.moveCurrentBlockRight()
-                            }
+            DragGesture(minimumDistance: 50)
+                .onChanged { value in
+                    if value.predictedEndTranslation.height > 180 && Int(value.predictedEndTranslation.height) % 10 == 0 {
+                        print("Slow move down...")
+                        viewModel.moveCurrentBlockDown()
+                    } else if value.predictedEndTranslation.height >= 300 {
+                        print("Fast move down...")
+                        viewModel.moveCurrentBlockDown()
+                    } else {
+                        if value.predictedEndTranslation.width < -50 && abs(Int(value.predictedEndTranslation.width)) % 10 == 0 {
+                            viewModel.moveCurrentBlockLeft()
                         }
-                        
-                        
-                        
-                        
-//                        if value.location.y * 0.6 > value.startLocation.y {
-//                            print("I've been moved down?")
-//                            viewModel.moveCurrentBlockDown()
-//                        } else {
-//                            if value.location.x * 0.7 < value.startLocation.x {
-//    //                            print("I've been dragged to the left...")
-//                                viewModel.moveCurrentBlockLeft()
-//                            }
-//                            if value.location.x * 0.7 > value.startLocation.x {
-//    //                            print("I've been dragged to the right...")
-//                                viewModel.moveCurrentBlockRight()
-//                            }
-//                        }
-//                        if value.translation.width < -80 {
-//                            viewModel.moveCurrentBlockLeft()
-//                        }
-//
-                        
+                        if value.predictedEndTranslation.width > 50 && abs(Int(value.predictedEndTranslation.width)) % 10 == 0 {
+                            viewModel.moveCurrentBlockRight()
+                        }
                     }
-                    .onEnded { value in
-//                        print("Dragged! \(value.translation)")
-                        print(value.translation)
-//                        if value.translation.width < -80 {
-//                            viewModel.moveCurrentBlockLeft()
-//                        }
-                    }
-            )
+                }
+                .onEnded { value in
+                }
+        )
         .onTapGesture {
             viewModel.flipCurrentBlock()
         }
+        
     }
     
     func blockColour(for block: Int) -> Color {

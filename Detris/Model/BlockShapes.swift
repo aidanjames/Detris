@@ -35,6 +35,7 @@ enum BrickColor {
 }
 
 protocol BlockShape {
+    var id: UUID { get }
     var currentPosition: [Int] { get set }
     var blockType: BlockType { get }
     var flipCount: Int { get set}
@@ -51,43 +52,50 @@ enum BlockType: String, CaseIterable, Codable {
     case rSkewBlock
 }
 
-struct StraightBlock: BlockShape, Codable {
+struct StraightBlock: BlockShape, Codable, Identifiable {
+    var id = UUID()
     var currentPosition = [14, 15, 16, 17]
     var blockType: BlockType = .straightBlock
     var flipCount: Int = 0
 }
 
-struct SquareBlock: BlockShape, Codable {
+struct SquareBlock: BlockShape, Codable, Identifiable {
+    var id = UUID()
     var currentPosition = [15, 16, 25, 26]
     var blockType: BlockType = .squareBlock
     var flipCount: Int = 0
 }
 
-struct TBlock: BlockShape, Codable {
+struct TBlock: BlockShape, Codable, Identifiable {
+    var id = UUID()
     var currentPosition = [24, 25, 26, 15]
     var blockType: BlockType = .tBlock
     var flipCount: Int = 0
 }
 
-struct LBlock: BlockShape, Codable {
+struct LBlock: BlockShape, Codable, Identifiable {
+    var id = UUID()
     var currentPosition = [25, 26, 27, 17]
     var blockType: BlockType = .lBlock
     var flipCount: Int = 0
 }
 
-struct ReverseLBlock: BlockShape, Codable {
+struct ReverseLBlock: BlockShape, Codable, Identifiable {
+    var id = UUID()
     var currentPosition = [24, 25, 26, 14]
     var blockType: BlockType = .reverseLBlock
     var flipCount: Int = 0    
 }
 
-struct LSkewBlock: BlockShape, Codable {
+struct LSkewBlock: BlockShape, Codable, Identifiable {
+    var id = UUID()
     var currentPosition = [14, 15, 25, 26]
     var blockType: BlockType = .lSkewBlock
     var flipCount: Int = 0
 }
 
-struct RSkewBlock: BlockShape, Codable {
+struct RSkewBlock: BlockShape, Codable, Identifiable {
+    var id = UUID()
     var currentPosition = [17, 16, 26, 25]
     var blockType: BlockType = .rSkewBlock
     var flipCount: Int = 0

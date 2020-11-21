@@ -63,8 +63,6 @@ class GameViewModel: ObservableObject {
                 UserDefaults.standard.set(game.highScore, forKey: "HighScore")
             }
         }
-
-        
         checkLevel()
     }
     
@@ -326,15 +324,19 @@ class GameViewModel: ObservableObject {
                 let proposedFlip3 = [currentBlock.currentPosition[0], currentBlock.currentPosition[1] + 9, currentBlock.currentPosition[2] + 18, currentBlock.currentPosition[3] + 27]
                 let proposedFlip4 = [currentBlock.currentPosition[0] + 33, currentBlock.currentPosition[1] + 22, currentBlock.currentPosition[2] + 11, currentBlock.currentPosition[3]]
                 if flipAllowed(newPosition: proposedFlip1) {
+                    print("Flipping on 1")
                     game.currentShape.currentPosition = proposedFlip1
                     game.currentShape.flipCount += 1
                 } else if flipAllowed(newPosition: proposedFlip2) {
+                    print("Flipping on 2")
                     game.currentShape.currentPosition = proposedFlip2
                     game.currentShape.flipCount += 1
                 } else if flipAllowed(newPosition: proposedFlip3) {
+                    print("Flipping on 3")
                     game.currentShape.currentPosition = proposedFlip3
                     game.currentShape.flipCount += 1
                 } else if flipAllowed(newPosition: proposedFlip4) {
+                    print("Flipping on 4")
                     game.currentShape.currentPosition = proposedFlip4
                     game.currentShape.flipCount += 1
                 }
@@ -342,17 +344,21 @@ class GameViewModel: ObservableObject {
                 let proposedFlip1 = [currentBlock.currentPosition[0] + 9, currentBlock.currentPosition[1], currentBlock.currentPosition[2] - 9, currentBlock.currentPosition[3] - 18]
                 let proposedFlip2 = [currentBlock.currentPosition[0] - 22, currentBlock.currentPosition[1] - 11, currentBlock.currentPosition[2], currentBlock.currentPosition[3] + 11]
                 let proposedFlip3 = [currentBlock.currentPosition[0], currentBlock.currentPosition[1] - 9, currentBlock.currentPosition[2] - 18, currentBlock.currentPosition[3] - 27]
-                let proposedFlip4 = [currentBlock.currentPosition[0] - 33, currentBlock.currentPosition[1] - 22, currentBlock.currentPosition[2] - 11, currentBlock.currentPosition[3]]
+                let proposedFlip4 = [currentBlock.currentPosition[0] + 27, currentBlock.currentPosition[1] + 18, currentBlock.currentPosition[2] + 9, currentBlock.currentPosition[3]]
                 if flipAllowed(newPosition: proposedFlip1) {
+                    print("Flipping on 1")
                     game.currentShape.currentPosition = proposedFlip1
                     game.currentShape.flipCount += 1
                 } else if flipAllowed(newPosition: proposedFlip2) {
+                    print("Flipping on 2")
                     game.currentShape.currentPosition = proposedFlip2
                     game.currentShape.flipCount += 1
                 } else if flipAllowed(newPosition: proposedFlip3) {
+                    print("Flipping on 3")
                     game.currentShape.currentPosition = proposedFlip3
                     game.currentShape.flipCount += 1
                 } else if flipAllowed(newPosition: proposedFlip4) {
+                    print("Flipping on 4")
                     game.currentShape.currentPosition = proposedFlip4
                     game.currentShape.flipCount += 1
                 }
